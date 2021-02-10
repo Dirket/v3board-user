@@ -28,6 +28,9 @@ const getAccess = () => {
 
 // 代码中会兼容本地 service mock 以及部署站点的静态数据
 export default {
+  'GET /api/v1/user/getStat': (req: Request, res: Response) => {
+    res.send({"data":[0,0,0]})
+  },
   // 支持值为 Object 和 Array
   'GET /api/currentUser': (req: Request, res: Response) => {
     if (!getAccess()) {
@@ -42,8 +45,8 @@ export default {
       return;
     }
     res.send({
-      name: 'Serati Ma',
-      avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
+      name: '1145141919',
+      avatar: 'https://avatars.githubusercontent.com/u/82173028?v=4',
       userid: '00000001',
       email: 'antdesign@alipay.com',
       signature: '海纳百川，有容乃大',

@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import type { ResponseError } from 'umi-request';
 import { currentUser as queryCurrentUser } from './services/ant-design-pro/api';
 import { BookOutlined, LinkOutlined } from '@ant-design/icons';
+import Header from '@/components/Header';
 
 const isDev = process.env.NODE_ENV === 'development';
 const loginPath = '/user/login';
@@ -52,10 +53,12 @@ export async function getInitialState(): Promise<{
 // https://umijs.org/zh-CN/plugins/plugin-layout
 export const layout: RunTimeLayoutConfig = ({ initialState }) => {
   return {
+    headerTitleRender: () => <Header />,
+    logo: () => null,
     rightContentRender: () => <RightContent />,
     disableContentMargin: false,
     waterMarkProps: {
-      content: initialState?.currentUser?.name,
+      // content: initialState?.currentUser?.name,
     },
     footerRender: () => <Footer />,
     onPageChange: () => {
@@ -65,18 +68,18 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
         history.push(loginPath);
       }
     },
-    links: isDev
-      ? [
-          <Link to="/umi/plugin/openapi" target="_blank">
-            <LinkOutlined />
-            <span>openAPI 文档</span>
-          </Link>,
-          <Link to="/~docs">
-            <BookOutlined />
-            <span>业务组件文档</span>
-          </Link>,
-        ]
-      : [],
+    // links: isDev
+    //   ? [
+    //       <Link to="/umi/plugin/openapi" target="_blank">
+    //         <LinkOutlined />
+    //         <span>openAPI 文档</span>
+    //       </Link>,
+    //       <Link to="/~docs">
+    //         <BookOutlined />
+    //         <span>业务组件文档</span>
+    //       </Link>,
+    //     ]
+    //   : [],
     menuHeaderRender: undefined,
     // 自定义 403 页面
     // unAccessible: <div>unAccessible</div>,

@@ -1,0 +1,30 @@
+/**
+ * Created by WebStorm.
+ * User: po1son
+ * Date: 2021/02/11
+ * Time: 01:35
+ */
+@import '~antd/es/style/themes/default.less';
+
+.menu {
+  :global(.anticon) {
+    margin-right: 8px;
+  }
+  :global(.ant-dropdown-menu-item) {
+    min-width: 160px;
+  }
+}
+
+.dropDown {
+  line-height: @layout-header-height;
+  vertical-align: top;
+  cursor: pointer;
+  > span {
+    font-size: 16px !important;
+    transform: none !important;
+    svg {
+      position: relative;
+      top: -1px;
+    }
+  }
+}
